@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Console Demo</title>
+    <style>
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, World!</h1>
+
+    <!-- Przyciski do testowania logów -->
+    <button id="log-btn">Show Log</button>
+    <button id="warn-btn">Show Warning</button>
+    <button id="error-btn">Show Error</button>
+
+    <script>
+      console.log('Loading!');
+      const h1 = document.querySelector('h1');
+      console.log(h1.textContent);
+      console.assert(document.querySelector('h2'), 'h2 not found!');
+      const artists = [
+        {
+          first: 'René',
+          last: 'Magritte'
+        },
+        {
+          first: 'Chaim',
+          last: 'Soutine'
+        },
+        {
+          first: 'Henri',
+          last: 'Matisse'
+        }
+      ];
+      console.table(artists);
+
+      setTimeout(() => {
+        h1.textContent = 'Hello, Console!';
+        console.log(h1.textContent);
+      }, 3000);
+
+      // Funkcja dla przycisku log
+      document.getElementById('log-btn').addEventListener('click', () => {
+        console.log('This is a log message!');
+      });
+
+      // Funkcja dla przycisku warning
+      document.getElementById('warn-btn').addEventListener('click', () => {
+        console.warn('This is a warning message!');
+      });
+
+      // Funkcja dla przycisku error
+      document.getElementById('error-btn').addEventListener('click', () => {
+        console.error('This is an error message!');
+      });
+    </script>
+  </body>
+</html>
